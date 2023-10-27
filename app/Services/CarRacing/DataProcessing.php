@@ -18,11 +18,11 @@ class DataProcessing
     public function getReadyData ()
     {
         $this->calculateTotalResult();
-        $this->sortByTotal();
+        $this->sortTable();
         return $this->cars;
     }
 
-    public function sortByTotal ()
+    protected function sortTable ()
     {
         uasort($this->cars, function ($a, $b) {
             if ($a['total'] == $b['total']) {
@@ -44,7 +44,7 @@ class DataProcessing
         });
     }
     
-    public function calculateTotalResult ()
+    protected function calculateTotalResult ()
     {
         $this->mergeArrays();
         foreach ($this->cars as $num => &$draverInfo) {
@@ -52,7 +52,7 @@ class DataProcessing
         }
     }
 
-    public function mergeArrays ()
+    protected function mergeArrays ()
     {
         foreach ($this->attempts as $index => $result) {
             

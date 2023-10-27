@@ -13,6 +13,6 @@ class CarRacingController extends Controller
         $data = new DataProcessing;
         $table = $data->getReadyData();
         $index = 1;
-        return view('car-racing-table', compact('table', 'index'));
+        return view('car-racing-index', compact('table', 'index'));
     }
 }
